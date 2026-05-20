@@ -7,7 +7,19 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_08():
-    """
+    asociados = {}
+    with open("files/input/data.csv", "r") as f:
+        for line in f:
+            cols = line.strip().split("\t")
+            letra = cols[0]
+            valor = int(cols[1])
+            if valor not in asociados:
+                asociados[valor] = set()
+            asociados[valor].add(letra)
+    return [(k, sorted(asociados[k])) for k in sorted(asociados.keys())]
+
+print(pregunta_08())
+"""
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla
     es una lista con las letras (ordenadas y sin repetir letra) de la

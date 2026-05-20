@@ -7,10 +7,6 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_01():
-    """
-    Retorne la suma de la segunda columna.
-
-    Rta/
-    214
-
-    """
+    with open("files/input/data.csv", "r") as f:
+        return sum(int(line.split("\t")[1]) for line in f)
+print(pregunta_01())
